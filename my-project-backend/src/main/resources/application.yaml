@@ -1,0 +1,59 @@
+# 开发环境配置
+springdoc:
+  paths-to-match: /api/**
+  swagger-ui:
+    operations-sorter: alpha
+spring:
+  mail:
+    host: smtp.163.com
+    username: m19375389028@163.com
+    password: XXNBCJDOLWKCIVRU
+    port: 465
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.ssl.trust: smtp.163.com
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+    hikari:
+      idle-timeout: 60000
+      maximum-pool-size: 30
+      minimum-idle: 2
+      auto-commit: true
+  security:
+    jwt:
+      key: 'abcdefghijklmn'
+      expire: 72
+      limit:
+        base: 10
+        upgrade: 300
+        frequency: 30
+    filter:
+      order: -100
+  web:
+    verify:
+      mail-limit: 60
+    flow:
+      period: 3
+      limit: 50
+      block: 30
+    cors:
+      origin: '*'
+      credentials: false
+      methods: '*'
+  minio:
+    endpoint: http://localhost:9000
+    username: "minio"
+    password: "password"
+  rabbitmq:
+    addresses: localhost:5672
+    username: guest
+    password: guest
+    virtual-host: /
+  weather:
+    key: d8c44640a8844b93af595ed455b1041a
